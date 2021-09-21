@@ -1,0 +1,24 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Anthill/bin/Debug/netcoreapp3.1
+/Anthill/obj/project.nuget.cache
+/Anthill/obj/project.assets.json
+/Anthill/obj/Debug/netcoreapp3.1/Anthill.csprojAssemblyReference.cache
+/Anthill/obj/Debug/netcoreapp3.1/Anthill.assets.cache
+/Anthill/obj/Debug/netcoreapp3.1/Anthill.AssemblyInfoInputs.cache
+/Anthill/obj/Debug/netcoreapp3.1/Anthill.AssemblyInfo.cs
+/Anthill/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+/Anthill/obj/Debug/netcoreapp3.1
+/Anthill/obj/Anthill.csproj.nuget.g.targets
+/Anthill/obj/Anthill.csproj.nuget.g.props
+/Anthill/obj/Anthill.csproj.nuget.dgspec.json
+/Anthill/obj
+/Anthill/.vs/Anthill/v16/.suo
+/Anthill/.vs/Anthill/v16
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite
+/.vs/Anthill/v16/.suo
+/.vs/Anthill/v16
+/.vs
