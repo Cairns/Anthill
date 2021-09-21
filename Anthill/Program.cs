@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace Anthill
         {
             int number = GetNumber();
 
-            int factorial = Factorial(number);
+            BigInteger factorial = Factorial(number);
 
             Console.WriteLine($"The factorial sum of {number} is {factorial}");
 
@@ -41,7 +42,7 @@ namespace Anthill
             return Console.ReadLine();
         }
 
-        private static int Factorial(int number)
+        private static BigInteger Factorial(int number)
         {
             if (number == 0)
             {
