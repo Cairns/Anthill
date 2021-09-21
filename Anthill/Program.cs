@@ -16,7 +16,9 @@ namespace Anthill
 
             BigInteger factorial = Factorial(number);
 
-            Console.WriteLine($"The factorial sum of {number} is {factorial}");
+            BigInteger sum = Sum(factorial);
+
+            PrintFactorialSum(number, factorial, sum);
 
             Exit();
         }
@@ -49,6 +51,26 @@ namespace Anthill
                 return 1;
             }
             return number * Factorial(number - 1);
+        }
+
+        private static BigInteger Sum(BigInteger factorial)
+        {
+            BigInteger sum = 0;
+            while (factorial != 0)
+            {
+                sum += factorial % 10;
+                factorial /= 10;
+            }
+
+            return sum;
+        }
+
+        private static void PrintFactorialSum(int number, BigInteger factorial, BigInteger sum)
+        {
+            var factorialExpression = string.Join("*", Enumerable.Range(1, number));
+            Console.WriteLine("{0}!={1}={2}", number, factorialExpression, factorial);
+
+            Console.WriteLine($"The sum of the digits for factorial {number} is {sum}");
         }
 
         private static void Pause(int seconds)
