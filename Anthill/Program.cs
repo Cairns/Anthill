@@ -89,18 +89,27 @@ namespace Anthill
             Console.WriteLine(FactorialDigitSum.Describe());
 
             int number = GetNumber();
-            var factorial = new FactorialDigitSum(number);
-            factorial.Calculate();
-            factorial.Sum();
+            var problem = new FactorialDigitSum(number);
+            problem.Calculate();
+            problem.Sum();
 
-            Console.WriteLine(factorial.FormatOutputResults());
+            Console.WriteLine(problem.FormatOutputResults());
 
             ContinueOnInput();
         }
 
         private static void HandleFibonacci()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(FibonacciOddEvenDigitSum.Describe());
+
+            int number = GetNumber();
+            var problem = new FibonacciOddEvenDigitSum(number);
+            problem.Calculate();
+            problem.Sum();
+
+            Console.WriteLine(problem.FormatOutputResults());
+
+            ContinueOnInput();
         }
 
         private static void HandleMultipleThreeFive()
