@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Anthill.EulerProblems;
+using Anthill.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -12,15 +14,98 @@ namespace Anthill
     {
         static void Main(string[] args)
         {
-            int number = GetNumber();
-
-            BigInteger factorial = Factorial(number);
-
-            BigInteger sum = Sum(factorial);
-
-            PrintFactorialSum(number, factorial, sum);
+            ShowMainMenu();
 
             Exit();
+        }
+
+        private static void ShowMainMenu()
+        {
+            bool showMenu = true;
+
+            while (showMenu)
+            {
+                try
+                {
+                    showMenu = MainMenu();
+                }
+                catch(System.NotImplementedException ex)
+                {
+                    DisplayError(ex.Message);
+                    Pause(2);
+                    showMenu = true;
+                }
+                catch(System.Exception ex)
+                {
+                    DisplayError(ex.Message);
+                    Pause(2);
+                    showMenu = false;
+                }
+            }
+        }
+
+        public static bool MainMenu()
+        {
+            Menu.DisplayMainMenu();
+
+            switch (CaptureInput())
+            {
+                case "1":
+                    {
+                        //Factorial digit sum
+                        HandleFactorial();
+                        return true;
+                    }
+                case "2":
+                    {
+                        //Even Fibonacci numbers
+                        HandleFibonacci();
+                        return true;
+                    }
+                case "3":
+                    {
+                        //Multiple of 3 or 5
+                        HandleMultipleThreeFive();
+                        return true;
+                    }
+                case "0":
+                    {
+                        //Exit
+                        return false;
+                    }
+                default:
+                    {
+                        //Invalid option entered
+                        Console.WriteLine("You entered an Invalid option.  Please try again");
+                        Pause(1);
+                        return true;
+                    }
+            }
+        }
+
+        private static void HandleFactorial()
+        {
+            //TODO:Refactor to not use a recursive function, as this will cause overflow with a relatively small integer 10000
+            Console.WriteLine(FactorialDigitSum.Describe());
+
+            int number = GetNumber();
+            var factorial = new FactorialDigitSum(number);
+            factorial.Calculate();
+            factorial.Sum();
+
+            Console.WriteLine(factorial.FormatOutputResults());
+
+            ContinueOnInput();
+        }
+
+        private static void HandleFibonacci()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void HandleMultipleThreeFive()
+        {
+            throw new NotImplementedException();
         }
 
         private static int GetNumber()
@@ -44,33 +129,16 @@ namespace Anthill
             return Console.ReadLine();
         }
 
-        private static BigInteger Factorial(int number)
+        private static void ContinueOnInput()
         {
-            if (number == 0)
-            {
-                return 1;
-            }
-            return number * Factorial(number - 1);
+            Console.WriteLine("");
+            Console.WriteLine("Press any key to continue");
+            CaptureInput();
         }
 
-        private static BigInteger Sum(BigInteger factorial)
+        private static void DisplayError(string message)
         {
-            BigInteger sum = 0;
-            while (factorial != 0)
-            {
-                sum += factorial % 10;
-                factorial /= 10;
-            }
-
-            return sum;
-        }
-
-        private static void PrintFactorialSum(int number, BigInteger factorial, BigInteger sum)
-        {
-            var factorialExpression = string.Join("*", Enumerable.Range(1, number));
-            Console.WriteLine("{0}!={1}={2}", number, factorialExpression, factorial);
-
-            Console.WriteLine($"The sum of the digits for factorial {number} is {sum}");
+            Console.WriteLine(message);
         }
 
         private static void Pause(int seconds)
