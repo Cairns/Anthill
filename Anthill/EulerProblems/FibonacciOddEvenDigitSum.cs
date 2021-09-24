@@ -1,6 +1,7 @@
 ﻿using Anthill.EulerProblems.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 using System.Text;
 
@@ -9,6 +10,9 @@ namespace Anthill.EulerProblems
     public class FibonacciOddEvenDigitSum : IProblemDescriber, IProblemCalculator, IProblemDigitAggregator, IProblemResultFormatter
     {
         private int Number { get; set; }
+        private List<BigInteger> FibonacciSequence { get; set; } = new List<BigInteger>();
+        private BigInteger EvenDigitSum { get; set; }
+        private BigInteger OddDigitSum { get; set; }
 
         public FibonacciOddEvenDigitSum(int number)
         {
@@ -17,6 +21,7 @@ namespace Anthill.EulerProblems
 
         public BigInteger Calculate()
         {
+            FibonacciSequence.Clear();
             return CalculateFibonacci(Number);
         }
 
@@ -38,7 +43,17 @@ namespace Anthill.EulerProblems
 
         public string FormatOutputResults()
         {
-            return String.Empty;
+            var sequence = string.Join(", ", FibonacciSequence);
+
+            StringBuilder builder = new StringBuilder();
+            builder.AppendLine("");
+            builder.AppendLine($"You supplied the number {Number}");
+            builder.AppendLine("");
+            builder.AppendLine(sequence.ToString());
+            builder.AppendLine("");
+            builder.AppendLine($"The sum of the even digits for {Number} fibonacci is {EvenDigitSum} ");
+            builder.AppendLine($"The sum of the even digits for {Number} fibonacci is {OddDigitSum} ");
+            return builder.ToString();
         }
 
         public BigInteger Sum()
@@ -46,13 +61,25 @@ namespace Anthill.EulerProblems
             return 0;
         }
 
-        private static BigInteger CalculateFibonacci(int number)
+        //TODO:Investigate matrix multiplcation version
+        private BigInteger CalculateFibonacci(int number)
         {
-            if (number <= 1)
+            BigInteger a = 0;
+            BigInteger b = 1;
+
+            //Iterate through the fibonacci sequence so we can construct it and store for later use
+            for (int i = 0; i < number; i++)
             {
-                return number;
+                BigInteger temp = a;
+                a = b;
+                b = temp + a;
+
+                FibonacciSequence.Add(temp);
             }
-            return CalculateFibonacci(number - 1) + CalculateFibonacci(number - 2);
+
+            FibonacciSequence.Add(a);
+
+            return a;
         }
     }
 }
