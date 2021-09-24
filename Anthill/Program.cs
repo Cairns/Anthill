@@ -104,7 +104,8 @@ namespace Anthill
 
             int number = GetNumber();
             var problem = new FibonacciOddEvenDigitSum(number);
-            problem.Calculate();
+            var temp = problem.Calculate();
+            Console.WriteLine(temp);
             problem.Sum();
 
             Console.WriteLine(problem.FormatOutputResults());

@@ -17,7 +17,7 @@ namespace Anthill.EulerProblems
 
         public BigInteger Calculate()
         {
-            return 0;
+            return CalculateFibonacci(Number);
         }
 
         public static string Describe()
@@ -44,6 +44,15 @@ namespace Anthill.EulerProblems
         public BigInteger Sum()
         {
             return 0;
+        }
+
+        private static BigInteger CalculateFibonacci(int number)
+        {
+            if (number <= 1)
+            {
+                return number;
+            }
+            return CalculateFibonacci(number - 1) + CalculateFibonacci(number - 2);
         }
     }
 }
