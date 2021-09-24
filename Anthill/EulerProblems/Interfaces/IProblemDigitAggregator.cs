@@ -7,6 +7,6 @@ namespace Anthill.EulerProblems.Interfaces
 {
     public interface IProblemDigitAggregator
     {
-        BigInteger Sum();
+        void Sum();
     }
 }

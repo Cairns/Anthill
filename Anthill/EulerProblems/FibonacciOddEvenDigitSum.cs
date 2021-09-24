@@ -19,10 +19,10 @@ namespace Anthill.EulerProblems
             this.Number = number;
         }
 
-        public BigInteger Calculate()
+        public void Calculate()
         {
             FibonacciSequence.Clear();
-            return CalculateFibonacci(Number);
+            CalculateFibonacci(Number);
         }
 
         public static string Describe()
@@ -52,17 +52,17 @@ namespace Anthill.EulerProblems
             builder.AppendLine(sequence.ToString());
             builder.AppendLine("");
             builder.AppendLine($"The sum of the even digits for {Number} fibonacci is {EvenDigitSum} ");
-            builder.AppendLine($"The sum of the even digits for {Number} fibonacci is {OddDigitSum} ");
+            builder.AppendLine($"The sum of the odd digits for {Number} fibonacci is {OddDigitSum} ");
             return builder.ToString();
         }
 
-        public BigInteger Sum()
+        public void Sum()
         {
-            return 0;
+
         }
 
         //TODO:Investigate matrix multiplcation version
-        private BigInteger CalculateFibonacci(int number)
+        private void CalculateFibonacci(int number)
         {
             BigInteger a = 0;
             BigInteger b = 1;
@@ -78,8 +78,6 @@ namespace Anthill.EulerProblems
             }
 
             FibonacciSequence.Add(a);
-
-            return a;
         }
     }
 }

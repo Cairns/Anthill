@@ -18,10 +18,9 @@ namespace Anthill.EulerProblems
             this.Number = number;
         }
 
-        public BigInteger Calculate()
+        public void Calculate()
         {
             Factorial = CalculateFactorial(Number);
-            return Factorial;
         }
 
         public static string Describe()
@@ -54,7 +53,7 @@ namespace Anthill.EulerProblems
             return builder.ToString();
         }
 
-        public BigInteger Sum()
+        public void Sum()
         {
             FactorialSum = 0;
             var factorial = this.Factorial;
@@ -63,8 +62,6 @@ namespace Anthill.EulerProblems
                 FactorialSum += factorial % 10;
                 factorial /= 10;
             }
-
-            return FactorialSum;
         }
 
         private static BigInteger CalculateFactorial(int number)

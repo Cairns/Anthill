@@ -7,6 +7,6 @@ namespace Anthill.EulerProblems.Interfaces
 {
     public interface IProblemCalculator
     {
-        BigInteger Calculate();
+        void Calculate();
     }
 }
