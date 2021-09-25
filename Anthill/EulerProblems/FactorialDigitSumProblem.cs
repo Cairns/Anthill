@@ -23,7 +23,7 @@ namespace Anthill.EulerProblems
             Factorial = CalculateFactorial(Number);
         }
 
-        public static string Describe()
+        public string Describe()
         {
             StringBuilder builder = new StringBuilder();
             builder.AppendLine("");

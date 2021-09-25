@@ -26,7 +26,7 @@ namespace Anthill.EulerProblems
             CalculateFibonacci(Number);
         }
 
-        public static string Describe()
+        public string Describe()
         {
             StringBuilder builder = new StringBuilder();
             builder.AppendLine("");
