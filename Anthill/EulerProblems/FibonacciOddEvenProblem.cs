@@ -8,14 +8,24 @@ using System.Text;
 
 namespace Anthill.EulerProblems
 {
-    public class FibonacciOddEvenProblem : IProblemDescriber, IProblemCalculator, IProblemDigitAggregator, IProblemResultFormatter
+    public class FibonacciOddEvenProblem : IProblemDescriber, IProblemInitialiser, IProblemCalculator, IProblemDigitAggregator, IProblemResultFormatter
     {
         private int Number { get; set; }
         private List<BigInteger> FibonacciSequence { get; set; } = new List<BigInteger>();
         private BigInteger EvenDigitSum { get; set; }
         private BigInteger OddDigitSum { get; set; }
 
+        public FibonacciOddEvenProblem()
+        {
+
+        }
+
         public FibonacciOddEvenProblem(int number)
+        {
+            this.Number = number;
+        }
+
+        public void Initialise(int number)
         {
             this.Number = number;
         }

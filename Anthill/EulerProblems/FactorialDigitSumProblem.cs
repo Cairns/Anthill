@@ -7,13 +7,23 @@ using System.Text;
 
 namespace Anthill.EulerProblems
 {
-    public class FactorialDigitSumProblem : IProblemDescriber, IProblemCalculator, IProblemDigitAggregator, IProblemResultFormatter
+    public class FactorialDigitSumProblem : IProblemDescriber, IProblemInitialiser, IProblemCalculator, IProblemDigitAggregator, IProblemResultFormatter
     {
         private int Number { get; set; }
         private BigInteger Factorial { get; set; }
         private BigInteger FactorialSum { get; set; }
 
+        public FactorialDigitSumProblem()
+        {
+
+        }
+
         public FactorialDigitSumProblem(int number)
+        {
+            this.Number = number;
+        }
+
+        public void Initialise(int number)
         {
             this.Number = number;
         }
