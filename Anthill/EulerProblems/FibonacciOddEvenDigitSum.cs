@@ -1,4 +1,5 @@
 ﻿using Anthill.EulerProblems.Interfaces;
+using Anthill.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,7 +59,20 @@ namespace Anthill.EulerProblems
 
         public void Sum()
         {
+            EvenDigitSum = 0;
+            OddDigitSum = 0;
 
+            foreach(var number in FibonacciSequence)
+            {
+                if (number.IsEven)
+                {
+                    EvenDigitSum += number;
+                }
+                else
+                {
+                    OddDigitSum += number;
+                }
+            }
         }
 
         //TODO:Investigate matrix multiplcation version
