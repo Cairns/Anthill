@@ -60,7 +60,7 @@ namespace Anthill.EulerProblems
             builder.AppendLine("");
             builder.AppendLine($"You supplied the number {Number}");
             builder.AppendLine("");
-            builder.AppendLine(sequence.ToString());
+            builder.AppendLine(sequence);
             builder.AppendLine("");
             builder.AppendLine($"The sum of the even digits for {Number} fibonacci is {EvenDigitSum} ");
             builder.AppendLine($"The sum of the odd digits for {Number} fibonacci is {OddDigitSum} ");
