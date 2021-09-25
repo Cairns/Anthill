@@ -1,4 +1,5 @@
 ﻿using Anthill.EulerProblems;
+using Anthill.EulerProblems.Interfaces;
 using Anthill.UI;
 using System;
 using System.Collections.Generic;
@@ -85,36 +86,50 @@ namespace Anthill
 
         private static void HandleFactorial()
         {
-            //TODO:Refactor to not use a recursive function, as this will cause overflow with a relatively small integer 10000
-            Console.WriteLine(FactorialDigitSumProblem.Describe());
+            ////TODO:Refactor to not use a recursive function, as this will cause overflow with a relatively small integer 10000
+            //Console.WriteLine(FactorialDigitSumProblem.Describe());
 
-            int number = GetNumber();
-            var problem = new FactorialDigitSumProblem(number);
-            problem.Calculate();
-            problem.Sum();
+            //int number = GetNumber();
+            //var problem = new FactorialDigitSumProblem(number);
+            //problem.Calculate();
+            //problem.Sum();
 
-            Console.WriteLine(problem.FormatOutputResults());
+            //Console.WriteLine(problem.FormatOutputResults());
 
-            ContinueOnInput();
+            //ContinueOnInput();
         }
 
         private static void HandleFibonacci()
         {
-            Console.WriteLine(FibonacciOddEvenProblem.Describe());
+            //Console.WriteLine(FibonacciOddEvenProblem.Describe());
+
+            //int number = GetNumber();
+            //var problem = new FibonacciOddEvenProblem(number);
+            //problem.Calculate();
+            //problem.Sum();
+
+            //Console.WriteLine(problem.FormatOutputResults());
+
+            //ContinueOnInput();
+        }
+
+        private static void HandleMultipleThreeFive()
+        {
+            HandleProblem(new MultiplesOfThreeOrFiveProblem(0));
+        }
+
+        private static void HandleProblem<T>(T problem) where T : IProblemDescriber, IProblemInitialiser, IProblemCalculator, IProblemDigitAggregator, IProblemResultFormatter, new()
+        {
+            problem.Describe();
 
             int number = GetNumber();
-            var problem = new FibonacciOddEvenProblem(number);
+            problem.Initialise(number);
             problem.Calculate();
             problem.Sum();
 
             Console.WriteLine(problem.FormatOutputResults());
 
             ContinueOnInput();
-        }
-
-        private static void HandleMultipleThreeFive()
-        {
-            throw new NotImplementedException();
         }
 
         private static int GetNumber()
