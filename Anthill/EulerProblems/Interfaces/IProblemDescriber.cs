@@ -6,6 +6,6 @@ namespace Anthill.EulerProblems.Interfaces
 {
     public interface IProblemDescriber
     {
-        static string Describe() { return String.Empty; }
+        string Describe();
     }
 }
