@@ -86,31 +86,13 @@ namespace Anthill
 
         private static void HandleFactorial()
         {
-            ////TODO:Refactor to not use a recursive function, as this will cause overflow with a relatively small integer 10000
-            //Console.WriteLine(FactorialDigitSumProblem.Describe());
-
-            //int number = GetNumber();
-            //var problem = new FactorialDigitSumProblem(number);
-            //problem.Calculate();
-            //problem.Sum();
-
-            //Console.WriteLine(problem.FormatOutputResults());
-
-            //ContinueOnInput();
+            //TODO:Refactor to not use a recursive function, as this will cause overflow with a relatively small integer 10000
+            HandleProblem(new FactorialDigitSumProblem(0));
         }
 
         private static void HandleFibonacci()
         {
-            //Console.WriteLine(FibonacciOddEvenProblem.Describe());
-
-            //int number = GetNumber();
-            //var problem = new FibonacciOddEvenProblem(number);
-            //problem.Calculate();
-            //problem.Sum();
-
-            //Console.WriteLine(problem.FormatOutputResults());
-
-            //ContinueOnInput();
+            HandleProblem(new FibonacciOddEvenProblem(0));
         }
 
         private static void HandleMultipleThreeFive()
@@ -120,7 +102,7 @@ namespace Anthill
 
         private static void HandleProblem<T>(T problem) where T : IProblemDescriber, IProblemInitialiser, IProblemCalculator, IProblemDigitAggregator, IProblemResultFormatter, new()
         {
-            problem.Describe();
+            Console.WriteLine(problem.Describe());
 
             int number = GetNumber();
             problem.Initialise(number);
