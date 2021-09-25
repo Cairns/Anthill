@@ -86,10 +86,10 @@ namespace Anthill
         private static void HandleFactorial()
         {
             //TODO:Refactor to not use a recursive function, as this will cause overflow with a relatively small integer 10000
-            Console.WriteLine(FactorialDigitSum.Describe());
+            Console.WriteLine(FactorialDigitSumProblem.Describe());
 
             int number = GetNumber();
-            var problem = new FactorialDigitSum(number);
+            var problem = new FactorialDigitSumProblem(number);
             problem.Calculate();
             problem.Sum();
 
@@ -100,10 +100,10 @@ namespace Anthill
 
         private static void HandleFibonacci()
         {
-            Console.WriteLine(FibonacciOddEvenDigitSum.Describe());
+            Console.WriteLine(FibonacciOddEvenProblem.Describe());
 
             int number = GetNumber();
-            var problem = new FibonacciOddEvenDigitSum(number);
+            var problem = new FibonacciOddEvenProblem(number);
             problem.Calculate();
             problem.Sum();
 
